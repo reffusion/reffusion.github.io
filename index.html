@@ -1,1 +1,905 @@
-coming soon...
+<meta charset="UTF-8">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+<script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      },
+      chtml: {
+        scale: 0.9,
+        mathmlSpacing: false,
+        exFactor: ".6em",
+        displayAlign: 'left',
+        displayIndent: '2em',
+        matchFontHeight: true,
+        scriptspace: .5,
+        skipAttributes: {},
+        ex: 6,
+        width: 'container',
+        linebreaks: { automatic: true },
+        fontURL: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2',
+        adaptiveCSS: true
+      },
+      loader: {
+        load: ['[tex]/ams']
+      }
+    };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style type="text/css">
+body {
+/*    font-family: "Lato", "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;*/
+    font-family: 'Lato', Verdana, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+}
+h1 {
+    font-weight: 300;
+    line-height: 1.15em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+a:link,a:visited {
+    color: #1772d0;
+    text-decoration: none;
+}
+a:hover {
+    color: #f09228;
+}
+h1, h2, h3 {
+    text-align: center;
+}
+h1 {
+    font-size: 36px;
+    font-weight: 500;
+}
+h2 {
+    font-weight: 400;
+    margin: 16px 0px 4px 0px;
+}
+.paper-title {
+    padding: 16px 0px 16px 0px;
+}
+
+.row, .author-row, .affil-row {
+     overflow: auto;
+}
+.author-row, .affil-row {
+    font-size: 18px;
+    font-weight: 400;
+}
+.authors {
+    font-size: 18px;
+}
+.affil-row {
+    margin-top: 16px;
+}
+.teaser {
+    max-width: 100%;
+}
+.text-center {
+    text-align: center;  
+}
+.screenshot {
+    width: 256px;
+    border: 1px solid #ddd;
+}
+.screenshot-el {
+    margin-bottom: 16px;
+}
+hr {
+    height: 1px;
+    border: 0; 
+    border-top: 1px solid #ddd;
+    margin: 0;
+}
+.material-icons {
+    vertical-align: -6px;
+}
+p {
+    line-height: 1.25em;
+}
+.caption {
+    font-size: 16px;
+    /*font-style: italic;*/
+    color: #666;
+    text-align: left;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+video {
+    display: block;
+    margin: auto;
+}
+figure {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#bibtex pre {
+    font-size: 14px;
+    background-color: #eee;
+    padding: 16px;
+}
+.blue {
+    color: #2c82c9;
+    font-weight: bold;
+}
+.orange {
+    color: #d35400;
+    font-weight: bold;
+}
+.flex-row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.paper-btn-parent {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0px;
+}
+.paper-btn {
+  position: relative;
+  text-align: center;
+
+  display: inline-block;
+  margin: 8px;
+  padding: 8px 8px;
+
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  
+  background-color: #1367a7;
+  color: #ecf0f1 !important;
+  font-size: 20px;
+  width: 100px;
+  font-weight: 600;
+}
+.paper-btn:hover {
+    opacity: 0.85;
+}
+
+/*.supp-btn {
+  position: relative;
+  text-align: center;
+
+  display: inline-block;
+  margin: 8px;
+  padding: 8px 8px;
+
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  
+  background-color: #1367a7;
+  color: #ecf0f1 !important;
+  font-size: 20px;
+  width: 150px;
+  font-weight: 600;
+}
+.supp-btn:hover {
+    opacity: 0.85;
+}*/
+
+.supp-btn {
+  background-color: #fff;
+  border: 1.5px solid #000;
+  color: #000 !important;
+  font-size: 16px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  letter-spacing: 1px;
+  margin: 8px;
+  padding: 8px 8px;
+  width: 150px;
+  font-weight: 400;
+}
+.supp-btn:hover {
+  background-color: #000;
+  color: #fff !important;
+}
+
+.supp-btn-wide {
+    background-color: #fff;
+    border: 1.5px solid #000;
+    color: #000 !important;
+    font-size: 16px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    letter-spacing: 1px;
+    margin: 8px;
+    padding: 8px 8px;
+    width: 250px;
+    font-weight: 400;
+  }
+  .supp-btn-wide:hover {
+    background-color: #000;
+    color: #fff !important;
+  }
+  
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.venue {
+/*    color: #1367a7;*/
+    color: #111;
+    font-weight: 400;
+}
+
+
+.topnav {
+  overflow: hidden;
+  background-color: #EEEEEE;
+}
+.topnav a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.one {
+  position: relative;
+}
+.two {
+  position: absolute;
+  transition: opacity .2s ease-in-out;
+  -moz-transition: opacity .2s ease-in-out;
+  -webkit-transition: opacity .2s ease-in-out;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl; /* vertical right-to-left */
+  transform: rotate(180deg); /* optional: flip the text to make it read from top to bottom */
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px; /* adjust the gap between images here */
+}
+.image-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%; /* This ensures a square aspect ratio */
+    overflow: hidden; /* This ensures that the image won't go outside the container */
+    display: flex;
+    justify-content: center; /* centers horizontally, if needed */
+    align-items: center; /* centers vertically */
+}
+
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    transition: opacity 0.2s;
+}
+
+.image-container .default-image {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+.image-container .hover-image {
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none; /* ensures the invisible image doesn't capture mouse events */
+}
+
+.row:hover .hover-image {
+    opacity: 1;
+}
+
+.column-header {
+    grid-column-end: span 1; /* This makes sure that the header only spans one column */
+    /* Style the headers as needed */
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+}
+.small-caps {
+    text-transform: uppercase; /* Capitalizes the text */
+    font-size: 0.8em;          /* Reduces the font size */
+    display: inline;
+}
+hr {
+    margin-bottom: 10px;
+}
+</style>
+
+
+<script type="text/javascript" src="../js/hidebib.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lato:300,400,500,600,700,300italic,400italic,500italic,600italic,700italic' rel='stylesheet' type='text/css'>
+
+<head>
+    <title>RefFusion: Reference Adapted Diffusion Models for 3D Scene Inpainting</title>
+    <meta property="og:description" content="RefFusion: Reference Adapted Diffusion Models for 3D Scene Inpainting"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141699104-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-141699104-1');
+    </script>
+</head>
+
+
+<body>
+<div class="container">
+    <div class="paper-title">
+        <h1><b>RefFusion: </b>Reference Adapted Diffusion Models for 3D Scene Inpainting</h1>
+    </div>
+    
+    <div id="authors">
+
+        <div style="clear: both">
+            <div class="paper-btn-parent">
+            <!-- <a class="supp-btn" href="">
+                <span class="material-icons"> description </span> 
+                    arXiv
+            </a> -->
+            <!-- <a class="supp-btn" href="">
+                <span class="material-icons"> description </span> 
+                 Paper
+            </a> -->
+            <!-- <a class="supp-btn" href="">
+                <span class="material-icons"> description </span> 
+                 Supplemental
+            </a> -->
+            <!-- <a class="supp-btn" href="./res/bibtex.txt">
+                <span class="material-icons"> description </span> 
+                 BibTeX
+            </a> -->
+            <a class="supp-btn" href="https://www.youtube.com/watch?v=dz2PnF6v0Uw" target="_blank">
+                <span class="material-icons">description</span> Video
+            </a>
+            </div>
+    </div>
+
+    <div id="carouselThanos" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner rounded">
+          <div class="carousel-item active">
+                <video class="rounded"  width="100%"  muted loop autoplay>
+                    <source src="res/thanos/hall.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+          </div>
+          <div class="carousel-item">
+                <video class="rounded"  width="100%"  muted loop autoplay>
+                    <source src="res/thanos/garden.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+          </div>
+          <div class="carousel-item">
+            <video class="rounded"  width="100%"  muted loop autoplay>
+                <source src="res/thanos/spinnerf-3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+      </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselThanos" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselThanos" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <section id="abstract">
+        <h2>Abstract</h2>
+        <hr>
+        <p class="text-justify">Neural reconstruction approaches are rapidly emerging as the preferred representation for 3D scenes, but their limited editability is still posing a challenge. In this work, we propose an approach for 3D scene inpainting---the task of coherently replacing parts of the reconstructed scene with desired content. Scene inpainting is an inherently ill-posed task as there exist many solutions that plausibly replace the missing content. A good inpainting method should therefore not only enable high-quality synthesis but also a high degree of control.
+            Based on this observation, we focus on enabling explicit control over the inpainted content and leverage a reference image as an efficient means to achieve this goal. Specifically, we introduce RefFusion, a novel 3D inpainting method based on a multi-scale personalization of an image inpainting diffusion model to the given reference view. The personalization effectively adapts the prior distribution to the target scene, resulting in a lower variance of score distillation objective and hence significantly sharper details. Our framework achieves state-of-the-art results for object removal while maintaining high controllability. We further demonstrate the generality of our formulation on other downstream tasks such as object insertion, scene outpainting, and sparse view reconstruction.
+
+            <div class="flex-row">
+                <figure style="width: 100%;">
+                    <a href="./res/method_diagram.jpg" class="toobig">
+                        <img width="100%" src="./res/method_diagram.jpg">
+                    </a>
+                </figure>
+            </div>
+            <p class="caption" style="margin-bottom: 3px;text-align: center;">
+                Overview of the proposed approach.
+            </p>
+    </section>
+
+    <br>
+
+    <div section="row">
+        <iframe class="rounded" width="100%" style="aspect-ratio: 16/9;" src="https://www.youtube.com/embed/dz2PnF6v0Uw?si=miou2dyNt6bmWSeF&amp;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+        </iframe>
+    </div>
+
+    <br>
+
+
+    <!-- <div class="container">
+        <div class="row">
+            <figure class="col-4">
+                <p class="caption" style="margin-bottom: 0px;text-align: center;">
+                    Input Scene
+                </p>
+            </figure>
+            <figure class="col-4">
+                <p class="caption" style="margin-bottom: 0px;text-align: center;">
+                    Reference View
+                </p>
+            </figure>
+            <figure class="col-4">
+                <p class="caption" style="margin-bottom: 0px;text-align: center;">
+                    Inpainted Scene
+                </p>
+            </figure>
+        </div>
+        <div class="row">
+            <figure class="col-4">
+                <video class="rounded"  width="100%"  muted loop autoplay>
+                    <source src="res/garden/rgb.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </figure>
+            <figure class="col-4">
+                <img  width="100%" src="res/garden/reference.jpg">
+            </figure>
+            <figure class="col-4">
+                <video class="rounded"  width="100%"  muted loop autoplay>
+                    <source src="res/garden/ours.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </figure>
+        </div>
+    </section> -->
+
+        
+
+    <section id="teaser-videos">
+        <div class="flex-row">
+            <figure style="width: 100%;">
+                <a href="res/teaser.jpg" class="toobig">
+                    <img width="100%" src="./res/teaser.jpg">
+                </a>
+            </figure>
+
+        </div>
+        <p class="caption" style="margin-bottom: 3px; text-align: justify;">
+            This work presents an approach for 3D inpainting based on the distillation of the 2D generative priors from reference adapted diffusion models. <i>Left</i> Given a scene represented using 3D Gaussian splatting and the user-defined mask, we use the score distillation objective based on a personalized diffusion model to inpaint the missing content in 3D. <i>Right</i> Our method is general and can be, without any changes, applied to other editing tasks such as object insertion, outpainting, and sparse view reconstruction.
+        </p>
+        
+    </section>
+
+    <section id="Results">
+        <h2>Inpainting Results</h2>
+        <hr>
+    </section>
+    
+    <p style="text-align: justify;">Qualitative 3D inpainting results on the SPIn-NeRF dataset.  </p>
+
+    <div class="row">
+        <figure class="col-4">
+            <p class="caption" style="margin-bottom: 0px;text-align: center;">
+                Input Scene
+            </p>
+        </figure>
+        <figure class="col-4">
+            <p class="caption" style="margin-bottom: 0px;text-align: center;">
+                Sample Mask
+            </p>
+        </figure>
+        <figure class="col-4">
+            <p class="caption" style="margin-bottom: 0px;text-align: center;">
+                Inpainted Scene
+            </p>
+        </figure>
+    </div>
+
+    <div id="carouselInpainting" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+                <figure class="col-4">
+                    <video class="rounded"  width="100%"  muted loop autoplay>
+                        <source src="res/3/rgb.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+                <figure class="col-4">
+                    <img class="rounded"  width="100%" src="res/3/hint.jpeg">
+                </figure>
+                <figure class="col-4">
+                    <video class="rounded"  width="100%"  muted loop autoplay>
+                        <source src="res/3/ours.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+                <figure class="col-4">
+                    <video class="rounded"  width="100%"  muted loop autoplay>
+                        <source src="res/7/rgb.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+                <figure class="col-4">
+                    <img class="rounded"  width="100%" src="res/7/hint.jpeg">
+                </figure>
+                <figure class="col-4">
+                    <video class="rounded"  width="100%"  muted loop autoplay>
+                        <source src="res/7/ours.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+                <figure class="col-4">
+                    <video class="rounded"  width="100%"  muted loop autoplay>
+                        <source src="res/9/rgb.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+                <figure class="col-4">
+                    <img class="rounded"  width="100%" src="res/9/hint.jpeg">
+                </figure>
+                <figure class="col-4">
+                    <video class="rounded"  width="100%"  muted loop autoplay>
+                        <source src="res/9/ours.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+                <figure class="col-4">
+                    <video class="rounded"  width="100%"  muted loop autoplay>
+                        <source src="res/2/rgb.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+                <figure class="col-4">
+                    <img class="rounded"  width="100%" src="res/2/hint.jpeg">
+                </figure>
+                <figure class="col-4">
+                    <video class="rounded"  width="100%"  muted loop autoplay>
+                        <source src="res/2/ours.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+                <figure class="col-4">
+                    <video class="rounded"  width="100%"  muted loop autoplay>
+                        <source src="res/8/rgb.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+                <figure class="col-4">
+                    <img class="rounded"  width="100%" src="res/8/hint.jpeg">
+                </figure>
+                <figure class="col-4">
+                    <video class="rounded"  width="100%"  muted loop autoplay>
+                        <source src="res/8/ours.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-2 btn btn-outline-secondary m-1" href="#carouselInpainting" role="button" data-slide="prev">Previous</div>
+            <div class="col-2 btn btn-outline-secondary m-1" href="#carouselInpainting" role="button" data-slide="next">Next</div>
+        </div>
+    </div>
+
+
+    <section id="Results">
+        <h2>Object Insertion Results</h2>
+        <hr>
+    </section>
+    
+    <p style="text-align: justify;">We demonstrate object insertion capabilities of our method by using a reference view with an added object in the masked region, obtained using a text-to-image inpainting diffusion model. Our method succeeds in distilling the specified object into the scene with high visual fidelity.  </p>
+
+    <div class="row">
+        <figure class="col-4">
+            <p class="caption" style="margin-bottom: 1px;text-align: center;">
+                Input Scene
+            </p>
+        </figure>
+        <figure class="col-4">
+            <p class="caption" style="margin-bottom: 1px;text-align: center;">
+                Reference View
+            </p>
+        </figure>
+        <figure class="col-4">
+            <p class="caption" style="margin-bottom: 1px;text-align: center;">
+                Output Scene
+            </p>
+        </figure>
+    </div>
+
+    <div id="carouselObject" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+                <figure class="col-4">
+                    <video class="rounded"  width="100%"  muted loop autoplay>
+                        <source src="res/7/rgb.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+                <figure class="col-4">
+                    <img class="rounded"  width="100%" src="res/7/object-ref.jpg">
+                </figure>
+                <figure class="col-4">
+                    <video class="rounded"  width="100%"  muted loop autoplay>
+                        <source src="res/7/object.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+                <figure class="col-4">
+                    <video class="rounded"  width="100%"  muted loop autoplay>
+                        <source src="res/9/rgb.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+                <figure class="col-4">
+                    <img class="rounded"  width="100%" src="res/9/object-ref.jpg">
+                </figure>
+                <figure class="col-4">
+                    <video class="rounded"  width="100%"  muted loop autoplay>
+                        <source src="res/9/object.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-2 btn btn-outline-secondary m-1" href="#carouselObject" role="button" data-slide="prev">Previous</div>
+            <div class="col-2 btn btn-outline-secondary m-1" href="#carouselObject" role="button" data-slide="next">Next</div>
+        </div>
+    </div>
+
+    
+
+    
+
+    <section id="Results">
+        <h2>Outpainting Results</h2>
+        <hr>
+    </section>
+    
+    <p style="text-align: justify;">We generate inverse masks by placing a sphere at a fixed distance along the optical axis and checking for ray-sphere intersection. Given this mask, we task our method to outpaint the scene using the same formulation and hyperparameters used for object removal. Our method completes the scene in a plausible manner.  </p>
+
+    <div class="row">
+        <figure class="col-4">
+            <p class="caption" style="margin-bottom: 1px;text-align: center;">
+                Input Scene
+            </p>
+        </figure>
+        <figure class="col-4">
+            <p class="caption" style="margin-bottom: 1px;text-align: center;">
+                Sample Mask
+            </p>
+        </figure>
+        <figure class="col-4">
+            <p class="caption" style="margin-bottom: 1px;text-align: center;">
+                Outpainted Scene
+            </p>
+        </figure>
+    </div>
+
+    <div class="row">
+        <figure class="col-4">
+            <video class="rounded"  width="100%"  muted loop autoplay>
+                <source src="res/7/rgb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </figure>
+        <figure class="col-4">
+            <img class="rounded"  width="100%" src="res/7/outpaint_hint.jpg">
+        </figure>
+        <figure class="col-4">
+            <video class="rounded"  width="100%"  muted loop autoplay>
+                <source src="res/7/outpaint.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </figure>
+    </div>
+
+
+
+
+
+    <section id="Results">
+        <h2>Sparse View Reconstruction</h2>
+        <hr>
+    </section>
+
+    
+    <p style="text-align: justify;">To investigate the benefits of our method for guiding the sparse view reconstruction, we consider a scene with an unwanted occluder where only a small set of clean images from the scene (GT views) is available. 
+       We show that while 3D Gaussian Splatting (3DGS) fails to reconstruct the masked region using sparse view supervision, our model acts as a prior to alleviate the lack of enough training views, enabling sharp reconstructions with as few as a single GT view.  </p>
+
+        
+       <div class="row">
+            <figure class="col-6">
+                <p class="caption" style="margin-bottom: 1px;text-align: center;">
+                    Masked Scene
+                </p>
+            </figure>
+            <figure class="col-6">
+                <p class="caption" style="margin-bottom: 1px;text-align: center;">
+                    Output (1 GT View)
+                </p>
+            </figure>
+       </div>
+       <div id="carouselSparse" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+                <figure class="col-6">
+                    <img class="rounded"  width="100%" src="res/1/hint.jpeg">
+                </figure>
+                <figure class="col-6">
+                    <video class="rounded"  width="100%"  muted loop autoplay>
+                        <source src="res/sparse/1-slide.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+                <figure class="col-6">
+                    <img class="rounded"  width="100%" src="res/5/hint.jpeg">
+                </figure>
+                <figure class="col-6">
+                    <video class="rounded"  width="100%"  muted loop autoplay>
+                        <source src="res/sparse/5-slide.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+                <figure class="col-6">
+                    <img class="rounded"  width="100%" src="res/6/hint.jpeg">
+                </figure>
+                <figure class="col-6">
+                    <video class="rounded"  width="100%"  muted loop autoplay>
+                        <source src="res/sparse/6-slide.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+                <figure class="col-6">
+                    <img class="rounded"  width="100%" src="res/3/hint.jpeg">
+                </figure>
+                <figure class="col-6">
+                    <video class="rounded"  width="100%"  muted loop autoplay>
+                        <source src="res/sparse/3-slide.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+            </div>
+          </div>
+        <div class="row justify-content-center">
+            <div class="col-2 btn btn-outline-secondary m-1" href="#carouselSparse" role="button" data-slide="prev">Previous</div>
+            <div class="col-2 btn btn-outline-secondary m-1" href="#carouselSparse" role="button" data-slide="next">Next</div>
+        </div>
+    </div>
+    
+</code></pre>
+    </section>
+
+    
+
+    <!-- End of page -->
+    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+      <tr>
+        <td>
+          <br>
+          <p align="middle">
+            <font size="3">
+            </font>
+          </p>
+        </td>
+      </tr>
+    </table>
+
+</div>
+
+<script>
+    $('#carouselThanos').carousel({interval: 8000});
+    $('#carouselInpainting').carousel({interval: false});
+    $('#carouselObject').carousel({interval: false});
+    $('#carouselSparse').carousel({interval: false});
+
+    $('#carouselThanos').on('slide.bs.carousel', function (e) {
+        var $video = $(e.relatedTarget).find('video');
+        if ($video.length) {
+        $video.get(0).currentTime = 0; // Reset video to beginning
+        }
+    });
+
+    $('#carouselSparse').on('slide.bs.carousel', function (e) {
+        var $video = $(e.relatedTarget).find('video');
+        if ($video.length) {
+        $video.get(0).currentTime = 0; // Reset video to beginning
+        }
+    });
+</script>
+</body>
+</html>
+
+
